@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  vulnmart:
+    build: .
+    container_name: vulnmart
+    ports:
+      - "80:5000"
+    volumes:
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - SECRET_KEY=devsecret
+      - DEBUG_FLAG=FLAG{debug_env_leak}

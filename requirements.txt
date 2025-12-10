@@ -1,0 +1,8 @@
+# Intentionally outdated/vulnerable versions
+Flask==0.12.4
+Jinja2==2.9.6
+itsdangerous==0.24
+Werkzeug==0.14.1
+
+# Deliberate flag in a comment
+# FLAG{outdated_flask_pwn}
