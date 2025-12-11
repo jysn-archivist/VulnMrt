@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin User Search</h2>
+<form method="get">
+  <label>Search username: <input type="text" name="search" value="{{ q }}"></label>
+  <button type="submit">Search</button>
+</form>
+
+<table border="1">
+  <tr><th>ID</th><th>Username</th><th>Email</th></tr>
+  {% for u in users %}
+    <tr>
+      <td>{{ u[0] }}</td>
+      <td>{{ u[1] }}</td>
+      <td>{{ u[2] }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

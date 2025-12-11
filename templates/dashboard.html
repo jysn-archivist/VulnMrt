@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Your recent invoices:</p>
+<ul>
+  {% for inv in invoices %}
+    <li>Invoice #{{ inv[0] }} - <a href="{{ url_for('invoice', invoice_id=inv[0]) }}">View</a></li>
+  {% endfor %}
+</ul>
+
+<h3>Apply Coupon</h3>
+<form method="post">
+  <label>Coupon code: <input type="text" name="coupon"></label>
+  <button type="submit">Apply</button>
+</form>
+
+{% if discount_msg %}
+  <p><strong>{{ discount_msg|safe }}</strong></p>
+{% endif %}
+{% endblock %}

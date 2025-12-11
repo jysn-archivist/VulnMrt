@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Profile</h2>
+{% if user %}
+  <p>Username: {{ user[0] }}</p>
+  <p>Current email: {{ user[1] }}</p>
+
+  <form method="post">
+    <label>New email: <input type="email" name="email" value="{{ user[1] }}"></label>
+    <button type="submit">Update</button>
+  </form>
+{% else %}
+  <p>No user info.</p>
+{% endif %}
+
+<h3>Upload Avatar</h3>
+<form method="post" action="{{ url_for('upload_avatar') }}" enctype="multipart/form-data">
+  <input type="file" name="avatar">
+  <button type="submit">Upload</button>
+</form>
+{% endblock %}

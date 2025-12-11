@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% if product %}
+  <h2>{{ product[1] }}</h2>
+  <p>{{ product[2] }}</p>
+  <p>Price: {{ product[3] }}</p>
+{% else %}
+  <p>Product not found.</p>
+{% endif %}
+
+<h3>Reviews</h3>
+<ul>
+  {% for author, content in reviews %}
+    <li><strong>{{ author }}</strong>: {{ content|safe }}</li> <!-- stored XSS -->
+  {% endfor %}
+</ul>
+
+<h4>Add Review</h4>
+<form method="post">
+  <label>Name: <input type="text" name="author" value="anonymous"></label><br>
+  <label>Review: <textarea name="content"></textarea></label><br>
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}

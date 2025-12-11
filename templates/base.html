@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VulnMart Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+  <!-- TODO: remove staging creds before launch
+       test_admin / admin123
+       also remove this flag: FLAG{html_comment_treasure}
+  -->
+  <header>
+    <h1><a href="{{ url_for('index') }}">VulnMart</a></h1>
+    <nav>
+      <a href="{{ url_for('products') }}">Products</a> |
+      <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+      <a href="{{ url_for('profile') }}">Profile</a> |
+      <a href="{{ url_for('contact') }}">Contact</a> |
+      <a href="{{ url_for('login') }}">Login</a> |
+      <a href="{{ url_for('register') }}">Register</a>
+    </nav>
+    <hr>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

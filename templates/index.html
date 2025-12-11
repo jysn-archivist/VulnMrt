@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome to VulnMart Online</h2>
+<p>Your friendly, totally secure e-commerce platform. Definitely not vulnerable at all.</p>
+
+<p>Try exploring:</p>
+<ul>
+  <li><a href="{{ url_for('login') }}">Login</a> (SQL Injection)</li>
+  <li><a href="{{ url_for('products') }}">Products</a> (search SQLi + reflected XSS)</li>
+  <li><a href="{{ url_for('dashboard') }}">Dashboard</a> (coupon logic flaw)</li>
+</ul>
+{% endblock %}
